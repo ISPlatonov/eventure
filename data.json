@@ -1,0 +1,123 @@
+[
+    {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "events": [
+        {
+        "title": "Event 1",
+        "description": "Event 1 description",
+        "date": {
+            "$date": "2021-01-01T22:26:12.111Z"
+        },
+        "location": "Event 1 location",
+        "participants": [
+            {
+            "participantId": "participant1",
+            "role": "Speaker"
+            }
+        ],
+        "tasks": [
+            {
+            "taskId": "task1",
+            "title": "Task 1",
+            "description": "Task 1 description",
+            "status": "Completed",
+            "deadline": {
+                "$date": "2021-01-02T22:26:12.111Z"
+            }
+            }
+        ]
+        },
+        {
+        "eventId": "event2",
+        "title": "Event 2",
+        "description": "Event 2 description",
+        "date": {
+            "$date": "2021-01-02T22:26:12.111Z"
+        },
+        "location": "Event 2 location",
+        "participants": [
+            {
+            "participantId": "participant2",
+            "role": "Attendee"
+            }
+        ],
+        "tasks": [
+            {
+            "taskId": "task2",
+            "title": "Task 2",
+            "description": "Task 2 description",
+            "status": "In Progress",
+            "deadline": {
+                "$date": "2021-01-03T22:26:12.111Z"
+            }
+            }
+        ]
+        }
+    ]
+    },
+    {
+    "name": "Ilya Kovalchuk",
+    "email": "ikoval@mail.com",
+    "events": [
+        {
+        "eventId": "event3",
+        "title": "Event 3",
+        "description": "Event 3 description",
+        "date": {
+            "$date": "2021-01-03T22:26:12.111Z"
+        },
+        "location": "Event 3 location",
+        "participants": [
+            {
+            "participantId": "participant3",
+            "role": "Speaker"
+            }
+        ],
+        "tasks": [
+            {
+            "taskId": "task3",
+            "title": "Task 3",
+            "description": "Task 3 description",
+            "status": "Not Started",
+            "deadline": {
+                "$date": "2021-01-04T22:26:12.111Z"
+            }
+            }
+        ]
+        }
+    ]
+    },
+    {
+        "name": "Mark Twain",
+        "email": "mtwain@gmail.com",
+        "events": [
+            {
+            "eventId": "event4",
+            "title": "Event 4",
+            "description": "Event 4 description",
+            "date": {
+                "$date": "2021-01-04T22:26:12.111Z"
+            },
+            "location": "Event 4 location",
+            "participants": [
+                {
+                "participantId": "participant4",
+                "role": "Attendee"
+                }
+            ],
+            "tasks": [
+                {
+                "taskId": "task4",
+                "title": "Task 4",
+                "description": "Task 4 description",
+                "status": "Completed",
+                "deadline": {
+                    "$date": "2021-01-05T22:26:12.111Z"
+                }
+                }
+            ]
+            }
+        ]
+    }
+]
