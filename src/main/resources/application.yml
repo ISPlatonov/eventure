@@ -1,0 +1,13 @@
+#okta:
+#  oauth2:
+#    issuer: https://dev-4a7rm0084f1y7mjy.us.auth0.com/
+#    client-id: Egkv2Cv1FZyn4vzwatTVON2mzIbquDFr
+#    client-secret: Hi7IC9yZ-eA6uikhW0LizN--FrEXIX6Mx0Bn20PCsdtUKXntIANaRQFX9abiI3um
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaque-token:
+          introspection-uri: https://dev-4a7rm0084f1y7mjy.us.auth0.com/
+          client-id: Egkv2Cv1FZyn4vzwatTVON2mzIbquDFr
+          client-secret: Hi7IC9yZ-eA6uikhW0LizN--FrEXIX6Mx0Bn20PCsdtUKXntIANaRQFX9abiI3um

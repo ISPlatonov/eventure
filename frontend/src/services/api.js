@@ -20,7 +20,7 @@ const GetAllUsers = () => {
             const token = localStorage.getItem("authToken");
             fetch(ApiAddress + "/api/users/all", {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
                 }
             })
                 .then((res) => res.json())

@@ -1,31 +1,26 @@
-// src/components/Dashboard.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { GetAllUsers } from '../services/api';
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+import Users from "./Users";
 
-const Dashboard = () => {
-    return (
-        <div className="container">
-            <div className="dashboard-header">
-                <h1>Welcome, User</h1>
-                <Link to="/create-event" className="button">Create New Event</Link>
-            </div>
-            <div className="dashboard-section">
-                <h2>Upcoming Events</h2>
-                <p>Event 1: Conference on Web Development - Date: 2024-02-15</p>
-                <p>Event 2: Tech Networking Meetup - Date: 2024-03-05</p>
-            </div>
-            <div className="dashboard-section">
-                <h2>Your Tasks</h2>
-                <div className="task-item">Task 1: Prepare presentation for the conference</div>
-                <div className="task-item">Task 2: Coordinate with tech meetup speakers</div>
-            </div>
-            <div className="dashboard-section">
-                <h2>All users</h2>
-                <GetAllUsers />
-            </div>
-        </div>
-    );
+const Profile = () => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
+  return (
+    isAuthenticated && (
+      <div>
+        <img src={user.picture} alt={user.name} />
+        <h2>{user.name}</h2>
+        <p>{user.email}</p>
+        {/* call java api to retrieve data */}
+        <h2>Java API Data</h2>
+        <Users />
+      </div>
+    )
+  );
 };
 
-export default Dashboard;
+export default Profile;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Replace this with your actual registration logic
-        const user = { username, email, password };
+        const user = { name, email, password };
         fetch("http://localhost:8081/api/auth/register", {
             method: "POST",
             headers: {
@@ -37,8 +37,8 @@ const Register = () => {
                     <label>Username:</label>
                     <input
                         type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     />
                 </div>
                 <div>

@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.method.P;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -23,28 +25,6 @@ public class AuthController {
     public ResponseEntity<User> register(@RequestBody User user) {
         User createdUser = userService.createUser(user);
         return ResponseEntity.ok(createdUser);
-    }
-
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
-        UserDetails user = userService.loadUserByUsername(loginRequest.getUsername());
-        // cout name and password
-        System.out.println("name: " + loginRequest.getUsername());
-        System.out.println("password: " + loginRequest.getPassword());
-        // cout found user
-        System.out.println("user: " + user);
-        // cout password match
-        System.out.println("password match: " + bCryptPasswordEncoder.matches(loginRequest.getPassword(), user.getPassword()));
-        if (user != null && bCryptPasswordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
-            // generate token and return it
-            String token = jwtUtil.generateToken(user.getUsername());
-            return ResponseEntity.ok(token);
-        } else {
-            return ResponseEntity.status(401).body("Invalid username or password");
-        }
     }
 
     // DTO for login request
